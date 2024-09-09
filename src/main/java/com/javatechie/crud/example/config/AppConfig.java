@@ -19,8 +19,8 @@ public class AppConfig {
         AwsSecret awsSecret = getSecret();
         return DataSourceBuilder
                 .create()
-                //.driverClassName()
-                .url("jdbc" + awsSecret.getEngine() + "://" +  awsSecret.getHost() + ":" + awsSecret.getPort() + "/database-1")
+                .driverClassName("com.mysql.cj.jdbc.Driver")
+                .url("jdbc:" + awsSecret.getEngine() + "://" +  awsSecret.getHost() + ":" + awsSecret.getPort() + "/database-1")
                 .username(awsSecret.getUsername())
                 .password(awsSecret.getPassword())
                 .build();
